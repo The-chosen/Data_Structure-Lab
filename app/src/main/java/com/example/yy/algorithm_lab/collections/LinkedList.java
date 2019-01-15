@@ -26,15 +26,43 @@ public class LinkedList<Item> implements Iterable<Item>{
         N++;
     }
 
-    public void remove() {
+    public void removeFirst() {
         if (first.next == null) {
             first = null;
         }
         else {
+            last.next.pre = null;
+        }
+        first = first.next;
+        N--;
+    }
+
+    public void removeLast() {
+        if(first.next == null){
+            first = null;
+        }else {
             last.pre.next = null;
         }
         last = last.pre;
         N--;
+    }
+
+    public void remove(Item item) {
+        for (Node<Item> i = first; i.equals(null); i = i.next) {
+            if (i.item.equals(item)) {
+                if (i.equals(first)) {
+                    removeFirst();
+                }
+                if (i.next.equals(null)) {
+                    removeLast();
+                }
+                i.pre.next = i.next;
+                i.next.pre = i.pre;
+                i = null;
+                N--;
+                break;
+            }
+        }
     }
 
     public Iterator<Item> iterator()  {

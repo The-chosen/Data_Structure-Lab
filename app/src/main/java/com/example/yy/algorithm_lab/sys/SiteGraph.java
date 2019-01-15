@@ -1,17 +1,18 @@
 package com.example.yy.algorithm_lab.sys;
 
 import com.example.yy.algorithm_lab.collections.Bag;
+import com.example.yy.algorithm_lab.collections.LinkedList;
 
 public class SiteGraph {
     private final int V;
     private int E;//有向图的边数目
-    private Bag<DiEdge>[] DiAdj;//有向图的边集合
+    private LinkedList<DiEdge>[] DiAdj;//有向图的边集合
 
     public SiteGraph(int V) {
         this.V = V;
-        DiAdj =  (Bag<DiEdge>[]) new Bag[V];
+        DiAdj =  (LinkedList<DiEdge>[]) new LinkedList[V];
         for (int i = 0; i < V; i++) {
-            DiAdj[i] = new Bag<>();
+            DiAdj[i] = new LinkedList<>();
         }
     }
 
@@ -33,8 +34,43 @@ public class SiteGraph {
         E++;
     }
 
+//    删除一个景点，不仅删除该景点，还删除该景点周围的所有路
     public void removeDiSite(Site s) {
-        
+        int removedIndex = -1;
+        for (int i = 0; i < DiAdj.length; i++) {
+            if (!DiAdj[i].equals(null)) {
+                if (DiAdj[i].iterator().next().from().getName().equals(s.getName())) {
+                    DiAdj[i] = null;
+                    removedIndex = i;
+                }
+            }
+        }
+        for (int i = 0; i < DiAdj.length; i++) {
+            if (i == removedIndex) {continue;}
+            else {
+                for (DiEdge e: DiAdj[i]
+                     ) {
+                    if (e.to().getName().equals(s.getName())) {
+                        DiAdj[i].remove(e);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+//    删除一个边，由于是无向图，故一个方向被删除，另一个方向也同时被删除
+    public void removeDiEdge(DiEdge e) {
+        for (int i = 0; i < DiAdj.length; i++) {
+            for (DiEdge d: DiAdj[i]
+                        ) {
+                    if (d.to().getName().equals(e.to().getName())
+                            || d.from().getName().equals(e.to().getName())) {
+                        DiAdj[i].remove(d);
+                        break;
+                    }
+            }
+        }
     }
 
 //    返回某个景点周围所有路径

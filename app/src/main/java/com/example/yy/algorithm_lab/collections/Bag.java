@@ -16,7 +16,6 @@ public class Bag<Item> implements Iterable<Item> {
         N = 0;
     }
 
-
     public boolean isEmpty() {
         return first == null;
     }
@@ -32,7 +31,6 @@ public class Bag<Item> implements Iterable<Item> {
         first.next = oldfirst;
         N++;
     }
-
 
     public Iterator<Item> iterator()  {
         return new ListIterator<Item>(first);
