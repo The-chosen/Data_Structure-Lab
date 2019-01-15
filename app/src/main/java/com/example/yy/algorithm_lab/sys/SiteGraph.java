@@ -4,17 +4,13 @@ import com.example.yy.algorithm_lab.collections.Bag;
 
 public class SiteGraph {
     private final int V;
-    private int E;//无向图的边数目
-    private int DiE;//有向图的边数目
-    private Bag<Edge>[] adj;//无向图的边集合
+    private int E;//有向图的边数目
     private Bag<DiEdge>[] DiAdj;//有向图的边集合
 
     public SiteGraph(int V) {
         this.V = V;
-        adj =  (Bag<Edge>[]) new Bag[V];
         DiAdj =  (Bag<DiEdge>[]) new Bag[V];
         for (int i = 0; i < V; i++) {
-            adj[i] = new Bag<>();
             DiAdj[i] = new Bag<>();
         }
     }
@@ -38,28 +34,14 @@ public class SiteGraph {
     }
 
     public void removeDiSite(Site s) {
-
+        
     }
 
 //    返回某个景点周围所有路径
-    public Iterable<Edge> adj(int v) {
-        return adj[v];
-    }
     public Iterable<DiEdge> DiAdj(int v) {
         return DiAdj[v];
     }
 
-//    返回该图周围所有路径
-    public Iterable<Edge> edges() {
-        Bag b = new Bag();
-        for (int i = 0; i < V; i++) {
-            for (Edge e: adj[i]
-                    ) {
-                if (e.other(i) > i) b.add(e);
-            }
-        }
-        return b;
-    }
 
 //    返回该图的关于权重的邻接矩阵
     public DiEdge[][] getMatrix() {
