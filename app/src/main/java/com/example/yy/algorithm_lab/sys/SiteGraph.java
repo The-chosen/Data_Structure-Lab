@@ -1,6 +1,5 @@
 package com.example.yy.algorithm_lab.sys;
 
-import com.example.yy.algorithm_lab.collections.Bag;
 import com.example.yy.algorithm_lab.collections.LinkedList;
 
 public class SiteGraph {
@@ -36,15 +35,9 @@ public class SiteGraph {
 
 //    删除一个景点，不仅删除该景点，还删除该景点周围的所有路
     public void removeDiSite(Site s) {
-        int removedIndex = -1;
-        for (int i = 0; i < DiAdj.length; i++) {
-            if (!DiAdj[i].equals(null)) {
-                if (DiAdj[i].iterator().next().from().getName().equals(s.getName())) {
-                    DiAdj[i] = null;
-                    removedIndex = i;
-                }
-            }
-        }
+        int removedIndex = s.getId();
+        DiAdj[s.getId()] = null;
+
         for (int i = 0; i < DiAdj.length; i++) {
             if (i == removedIndex) {continue;}
             else {

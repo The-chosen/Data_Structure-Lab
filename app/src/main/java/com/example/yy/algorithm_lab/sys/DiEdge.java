@@ -1,15 +1,13 @@
 package com.example.yy.algorithm_lab.sys;
 
 public class DiEdge {
-
-
-    private Site v;
-    private Site w;
+    private Site from;
+    private Site to;
     private double weight;
 
-    public DiEdge(Site v, Site w, double weight) {
-        this.v = v;
-        this.w = w;
+    public DiEdge(Site from, Site to, double weight) {
+        this.from = from;
+        this.to = to;
         this.weight = weight;
     }
 
@@ -18,15 +16,15 @@ public class DiEdge {
     }
 
     public Site from() {
-        return v;
+        return from;
     }
 
     public Site to() {
-        return w;
+        return to;
     }
 
     @Override
     public String toString() {
-        return String.format("%d->%d %.2f", v, w, weight);
+        return String.format("%d->%d %.2f", from, to, weight);
     }
 }
