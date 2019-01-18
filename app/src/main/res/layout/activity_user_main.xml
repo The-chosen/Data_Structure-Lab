@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.UserMainActivity">
+    android:background="#eee">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/activity_user_main_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="100dp"
+        android:text="景区欢迎您！"
+        android:textColor="#000"
+        android:textSize="23sp"
+        android:typeface="monospace"/>
+
+
+    <Button
+        android:id="@+id/activity_user_main_siteDistr_btn"
+        android:layout_marginTop="110dp"
+        android:layout_width="340dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_user_main_head_title"
+        android:text="景区景点分布图"/>
+
+    <Button
+        android:id="@+id/activity_user_main_siteSearch_btn"
+        android:layout_marginTop="5dp"
+        android:layout_width="340dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_user_main_siteDistr_btn"
+        android:text="景点查找及热度排序"/>
+
+    <Button
+        android:id="@+id/activity_user_main_guidline_btn"
+        android:layout_marginTop="5dp"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_user_main_siteSearch_btn"
+        android:text="导游路线图"/>
+
+
+    <Button
+        android:id="@+id/activity_user_main_shortestRoad_btn"
+        android:layout_marginTop="5dp"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_user_main_guidline_btn"
+        android:text="最短路径指导"/>
+
+
+    <Button
+        android:id="@+id/activity_user_main_parking_btn"
+        android:layout_marginTop="5dp"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_user_main_shortestRoad_btn"
+        android:text="停车"/>
+
+
+</RelativeLayout>

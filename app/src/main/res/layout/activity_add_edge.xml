@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_add_edge_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="20dp"
+        android:text="新路径添加"
+        android:textColor="#000"
+        android:textSize="23sp"
+        android:typeface="monospace"/>
+
+
+    <TextView
+        android:id="@+id/warning_add_edge"
+        android:visibility="invisible"
+        android:layout_below="@+id/activity_add_edge_head_title"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请将信息填写完整！"
+        android:textColor="#f90000"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/connect_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/warning_add_edge"
+        android:background="#fff">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/to_icon"/>
+        <EditText
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="9"
+            android:hint="与新景点连接的景点"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/new_edge_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/connect_site"
+        android:background="#fff">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:src="@drawable/length_icon"/>
+        <EditText
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="9"
+            android:hint="路径距离"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/new_edge_add_btn"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_edge_weight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        android:text="新路径添加"
+        />
+
+    <Button
+        android:id="@+id/new_edge_add_finish_btn"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_edge_add_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="添加完成"
+        />
+</RelativeLayout>

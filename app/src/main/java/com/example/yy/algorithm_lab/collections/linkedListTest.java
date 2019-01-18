@@ -15,7 +15,7 @@ public class linkedListTest {
 
         System.out.println("size:" + linkedList.size());
 
-        linkedList.remove();
+        linkedList.remove(4);
 
         System.out.println("size(removed one):" + linkedList.size());
 

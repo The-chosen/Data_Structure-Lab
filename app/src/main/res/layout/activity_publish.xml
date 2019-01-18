@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <TextView
+        android:id="@+id/activity_publish_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="布告栏"
+        android:textColor="#000"
+        android:textSize="23sp"
+        android:typeface="monospace"/>
+
+    <TextView
+        android:id="@+id/warning_publish"
+        android:visibility="invisible"
+        android:layout_below="@+id/activity_publish_head_title"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请将信息填写完整！"
+        android:textColor="#f90000"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:text="发布您的通知："
+        android:textSize="18dp"
+        android:layout_below="@id/warning_publish"
+        android:layout_marginTop="30dp"/>
+
+    <RelativeLayout
+        android:id="@+id/enter_text_area"
+        android:background="#fff"
+        android:layout_below="@id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:hint="您的通知..."
+            />
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/publish_btn"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="发布公告"
+        android:layout_below="@id/enter_text_area"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+</RelativeLayout>

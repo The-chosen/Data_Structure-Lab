@@ -8,25 +8,16 @@ import android.widget.Button;
 
 import com.example.yy.algorithm_lab.R;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        Button user = (Button) findViewById(R.id.activity_main_user_btn);
-        Button admin = (Button) findViewById(R.id.activity_main_admin_btn);
+        Button login = (Button)findViewById(R.id.login_btn);
 
-        user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), UserMainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        admin.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AdminMainActivity.class);

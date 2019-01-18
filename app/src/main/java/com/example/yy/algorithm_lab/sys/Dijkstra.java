@@ -7,7 +7,7 @@ public class Dijkstra {
     private DiEdge[] DiEdgeTo;
     private double[] distTo;
     private IndexMinPQ<Double> pq;
-    private String line;
+    private String line = "";
     private Site s;
 
     public Dijkstra(SiteGraph G, Site s) {
@@ -42,12 +42,12 @@ public class Dijkstra {
         }
     }
 
-    public boolean hasPath(int v) {
-        return distTo[v] < Double.POSITIVE_INFINITY;
+    public boolean hasPath(Site v) {
+        return distTo[v.getId()] < Double.POSITIVE_INFINITY;
     }
 
     public Stack<DiEdge> pathTo(Site v) {
-        if (!hasPath(v.getId())) return null;
+        if (!hasPath(v)) return null;
         Stack<DiEdge> s = new Stack<>();
         for (DiEdge i = DiEdgeTo[v.getId()]; i != null ; i = DiEdgeTo[i.from().getId()]) {
             s.push(i);
@@ -57,10 +57,11 @@ public class Dijkstra {
 
     public void setLine(Site v) {
         line += s.getName();
-        for (int i = 0; i < pathTo(v).size(); i++) {
-            line += "—>" + pathTo(v).pop().to().getName();
+        Stack<DiEdge> path = pathTo(v);
+        for (int i = 0; i < path.size(); i++) {
+            line += "—>" + path.pop().to().getName();
         }
-        line += v.getName();
+        line += "—>" + v.getName();
     }
 
     public String getLine() {

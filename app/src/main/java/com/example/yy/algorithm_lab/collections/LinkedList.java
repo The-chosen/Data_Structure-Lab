@@ -65,6 +65,40 @@ public class LinkedList<Item> implements Iterable<Item>{
         }
     }
 
+    public Item get(int i) {
+        if (i < 0 || i > N - 1) {
+            throw new ArrayIndexOutOfBoundsException("Invalide position!");
+        } else {
+            int cnt = 0;
+            Node t = first;
+            while (!t.equals(null)) {
+                if (cnt == i) {
+                    return (Item)t.item;
+                }
+                t = t.next;
+                cnt ++;
+            }
+            return null;
+        }
+    }
+
+    public void set(int i, Item item) {
+        if (i < 0 || i > N - 1) {
+            throw new ArrayIndexOutOfBoundsException("Invalide position!");
+        } else {
+            int cnt = 0;
+            Node t = first;
+            while (!t.equals(null)) {
+                if (cnt == i) {
+                    t.item = item;
+                    return;
+                }
+                t = t.next;
+                cnt ++;
+            }
+        }
+    }
+
     public Iterator<Item> iterator()  {
         return new ListIterator<Item>(first);
     }

@@ -13,7 +13,6 @@ public class Merge {
             else if (less(aux[j], aux[i])) a[k] = aux[j++];
             else                           a[k] = aux[i++];
         }
-
     }
 
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {

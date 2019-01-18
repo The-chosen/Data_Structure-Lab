@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#eee">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/activity_admin_main_head_title"
+        android:id="@+id/activity_site_maintain_head_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="100dp"
-        android:text="功能选择"
+        android:layout_marginTop="20dp"
+        android:text="景点维护"
         android:textColor="#000"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
-
     <Button
-        android:id="@+id/activity_admin_main_site_btn"
-        android:layout_marginTop="210dp"
+        android:id="@+id/activity_site_maintian_insert_btn"
+        android:layout_marginTop="285dp"
         android:layout_width="340dp"
-
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_admin_main_head_title"
-        android:text="景点维护"/>
+        android:layout_below="@id/activity_site_maintain_head_title"
+        android:text="插入新景点"/>
 
     <Button
-        android:id="@+id/activity_admin_main_edge_btn"
-        android:layout_marginTop="10dp"
-        android:layout_width="340dp"
-
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_admin_main_site_btn"
-        android:text="道路维护"/>
-
-    <Button
-        android:id="@+id/activity_admin_main_publish_btn"
+        android:id="@+id/activity_site_maintain_change_btn"
         android:layout_marginTop="10dp"
         android:layout_width="340dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_admin_main_edge_btn"
-        android:text="发布通知通告"/>
+        android:layout_below="@id/activity_site_maintian_insert_btn"
+        android:text="修改景点信息"/>
+
+
+    <Button
+        android:id="@+id/activity_site_maintain_delete_btn"
+        android:layout_marginTop="10dp"
+        android:layout_width="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_site_maintain_change_btn"
+        android:text="删除景点"/>
+
 
 
 </RelativeLayout>

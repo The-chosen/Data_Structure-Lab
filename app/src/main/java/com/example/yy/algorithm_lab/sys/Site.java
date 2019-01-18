@@ -1,6 +1,8 @@
 package com.example.yy.algorithm_lab.sys;
 
-public class Site {
+import java.io.Serializable;
+
+public class Site implements Serializable {
     private int id;
     private String name;
     private String intro;
@@ -13,7 +15,7 @@ public class Site {
         this.name = name;
     }
 
-    public Site(int id, String name, String intro, int popul, boolean hasBreak, boolean hasWC) {
+    public Site(int id, String name, String intro, boolean hasBreak, boolean hasWC) {
         this.id = id;
         this.name = name;
         this.intro = intro;

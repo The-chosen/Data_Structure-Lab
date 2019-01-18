@@ -17,7 +17,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.AdminMainActivity" />
-        <activity android:name=".activities.UserMainActivity"></activity>
+        <activity android:name=".activities.UserMainActivity" />
+        <activity android:name=".activities.SiteDistrActivity" />
+        <activity android:name=".activities.SiteSearch" />
+        <activity android:name=".activities.GuidlineActivity" />
+        <activity android:name=".activities.shortestRoadActivity" />
+        <activity android:name=".activities.ParkingActivity" />
+        <activity android:name=".activities.SiteMaintainActivity" />
+        <activity android:name=".activities.EdgeMaintainActivity" />
+        <activity android:name=".activities.PublishActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.AddSiteActivity" />
+        <activity android:name=".activities.AddEdgeActivity" />
+        <activity android:name=".activities.ChangeSiteActivity" />
+        <activity android:name=".activities.DeleteSiteActivity"></activity>
     </application>
 
 </manifest>

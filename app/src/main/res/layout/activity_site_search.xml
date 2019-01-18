@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <TextView
+        android:id="@+id/activity_site_search_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="30dp"
+        android:text="景点查找和热度排序"
+        android:textColor="#000"
+        android:textSize="23sp"
+        android:typeface="monospace"/>
+
+    <LinearLayout
+        android:id="@+id/site_search_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_site_search_head_title"
+        android:layout_marginTop="20dp"
+        android:background="#fff">
+
+        <EditText
+            android:id="@+id/site_search_entryPlace"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="9"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:ems="15"
+            android:hint="景点查找"
+            android:textSize="15sp" />
+
+
+        <Button
+            android:id="@+id/seach_icon"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/search_icon"/>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/site_search_entry"
+        >
+
+        <ImageView
+            android:id="@+id/fire_img"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/fire"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/hot_site_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/fire_img"
+            android:text="热门景点 :"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            />
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/label">
+
+    </ListView>
+
+
+</RelativeLayout>
