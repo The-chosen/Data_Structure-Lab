@@ -1,6 +1,8 @@
 package com.example.yy.algorithm_lab.sys;
 
 import com.example.yy.algorithm_lab.collections.LinkedList;
+import com.example.yy.algorithm_lab.db.DiEdge;
+import com.example.yy.algorithm_lab.db.Site;
 
 public class SiteGraph {
     private int V = 0;

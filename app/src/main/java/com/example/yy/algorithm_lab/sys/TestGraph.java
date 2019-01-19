@@ -1,5 +1,8 @@
 package com.example.yy.algorithm_lab.sys;
 
+import com.example.yy.algorithm_lab.db.DiEdge;
+import com.example.yy.algorithm_lab.db.Site;
+
 public class TestGraph {
     private  SiteGraph graph;
 

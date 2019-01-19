@@ -1,12 +1,13 @@
-package com.example.yy.algorithm_lab.activities;
+package com.example.yy.algorithm_lab.activities.AdminActivities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.yy.algorithm_lab.R;
-import com.example.yy.algorithm_lab.sys.Site;
+import com.example.yy.algorithm_lab.db.Site;
 
 public class AddEdgeActivity extends AppCompatActivity {
 
@@ -23,7 +24,8 @@ public class AddEdgeActivity extends AppCompatActivity {
         newEdgeAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_add_edge);
+//                setContentView(R.layout.activity_add_edge);
+                refresh();
 //                收集数据
 
             }
@@ -39,4 +41,11 @@ public class AddEdgeActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void refresh() {
+        finish();
+        Intent intent = new Intent(AddEdgeActivity.this, AddEdgeActivity.class);
+        startActivity(intent);
+    }
+
 }

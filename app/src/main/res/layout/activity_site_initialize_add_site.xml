@@ -4,21 +4,21 @@
     android:background="#eee">
 
     <TextView
-        android:id="@+id/activity_add_site_head_title"
+        android:id="@+id/activity_add_site_head_title_i"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="20dp"
-        android:text="景点维护"
+        android:text="景点初始化"
         android:textColor="#000"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
     <TextView
-        android:id="@+id/warning_a"
+        android:id="@+id/warning_a_i"
         android:visibility="invisible"
-        android:layout_below="@+id/activity_add_site_head_title"
+        android:layout_below="@+id/activity_add_site_head_title_i"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,11 +28,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/site_name"
+        android:id="@+id/site_name_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/warning_a"
+        android:layout_below="@id/warning_a_i"
         android:background="#fff">
         <ImageView
             android:layout_width="0dp"
@@ -41,7 +41,7 @@
             android:padding="6dp"
             android:src="@drawable/name_icon"/>
         <EditText
-            android:id="@+id/name_content"
+            android:id="@+id/name_content_i"
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"
@@ -51,15 +51,15 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/site_hasbreak"
+        android:id="@+id/site_hasbreak_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/site_name"
+        android:layout_below="@id/site_name_i"
         android:background="#fff">
 
         <LinearLayout
-            android:id="@+id/up1"
+            android:id="@+id/up1_i"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -80,7 +80,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/up1"
+            android:layout_below="@id/up1_i"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -91,19 +91,19 @@
                 android:layout_weight="1"/>
 
             <RadioGroup
-                android:id="@+id/rest_radiogroup"
+                android:id="@+id/rest_radiogroup_i"
                 android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_weight="9"
                 android:layout_height="wrap_content">
                 <RadioButton
-                    android:id="@+id/rest_y"
+                    android:id="@+id/rest_y_i"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="有"/>
                 <RadioButton
-                    android:id="@+id/rest_n"
+                    android:id="@+id/rest_n_i"
                     android:layout_marginLeft="100dp"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
@@ -117,15 +117,15 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/site_hasWC"
+        android:id="@+id/site_hasWC_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/site_hasbreak"
+        android:layout_below="@id/site_hasbreak_i"
         android:background="#fff">
 
         <LinearLayout
-            android:id="@+id/up2"
+            android:id="@+id/up2_i"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -146,7 +146,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/up2"
+            android:layout_below="@id/up2_i"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -157,19 +157,19 @@
                 android:layout_weight="1"/>
 
             <RadioGroup
-                android:id="@+id/wc_radiogroup"
+                android:id="@+id/wc_radiogroup_i"
                 android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_weight="9"
                 android:layout_height="wrap_content">
                 <RadioButton
-                    android:id="@+id/wc_y"
+                    android:id="@+id/wc_y_i"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="有"/>
                 <RadioButton
-                    android:id="@+id/wc_n"
+                    android:id="@+id/wc_n_i"
                     android:layout_marginLeft="100dp"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
@@ -184,11 +184,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/site_intro"
+        android:id="@+id/site_intro_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/site_hasWC"
+        android:layout_below="@id/site_hasWC_i"
         android:background="#fff">
         <ImageView
             android:layout_width="0dp"
@@ -209,13 +209,40 @@
             android:hint="景点介绍"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/site_add_finish_btn"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:text="景点添加完成"
-        android:layout_below="@id/site_intro"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_below="@id/site_intro_i"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
+            <Button
+                android:id="@+id/add_site_btn_i"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="继续增添"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5">
+            <Button
+                android:id="@+id/finish_site_btn_i"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="增添完成"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

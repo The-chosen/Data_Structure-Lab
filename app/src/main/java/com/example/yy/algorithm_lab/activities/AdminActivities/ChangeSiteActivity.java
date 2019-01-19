@@ -1,4 +1,4 @@
-package com.example.yy.algorithm_lab.activities;
+package com.example.yy.algorithm_lab.activities.AdminActivities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

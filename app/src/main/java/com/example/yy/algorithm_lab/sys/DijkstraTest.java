@@ -1,5 +1,7 @@
 package com.example.yy.algorithm_lab.sys;
 
+import com.example.yy.algorithm_lab.db.Site;
+
 public class DijkstraTest {
     public static void main(String[] args) {
         SiteGraph siteGraph = (new TestGraph()).getGraph();

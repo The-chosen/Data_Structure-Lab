@@ -4,21 +4,21 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/activity_edge_maintain_head_title"
+        android:id="@+id/activity_edge_maintain_head_title_i"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="20dp"
-        android:text="路径维护"
+        android:text="路径初始化"
         android:textColor="#000"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
     <TextView
-        android:id="@+id/warning_edge_maintain"
+        android:id="@+id/warning_edge_maintain_i"
         android:visibility="invisible"
-        android:layout_below="@+id/activity_edge_maintain_head_title"
+        android:layout_below="@+id/activity_edge_maintain_head_title_i"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,11 +28,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/from_entry"
+        android:id="@+id/from_entry_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_below="@id/warning_edge_maintain"
+        android:layout_below="@id/warning_edge_maintain_i"
         android:background="#fff"
         >
         <ImageView
@@ -52,11 +52,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/to_entry"
+        android:id="@+id/to_entry_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_below="@id/from_entry"
+        android:layout_below="@id/from_entry_i"
         android:background="#fff">
         <ImageView
             android:layout_width="0dp"
@@ -75,11 +75,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/weight"
+        android:id="@+id/weight_i"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_below="@id/to_entry"
+        android:layout_below="@id/to_entry_i"
         android:background="#fff">
         <ImageView
             android:layout_width="0dp"
@@ -97,7 +97,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@id/weight"
+        android:layout_below="@id/weight_i"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -107,11 +107,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="5">
             <Button
-                android:id="@+id/add_edge_btn"
+                android:id="@+id/add_edge_btn_i"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="增添"/>
+                android:text="继续增添"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -119,11 +119,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="5">
             <Button
-                android:id="@+id/delete_edge_btn"
+                android:id="@+id/finish_edge_btn_i"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="删除"
+                android:text="增添完成"
                 />
 
 

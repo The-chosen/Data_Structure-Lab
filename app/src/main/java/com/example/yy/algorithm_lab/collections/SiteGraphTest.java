@@ -1,6 +1,6 @@
 package com.example.yy.algorithm_lab.collections;
 
-import com.example.yy.algorithm_lab.sys.DiEdge;
+import com.example.yy.algorithm_lab.db.DiEdge;
 import com.example.yy.algorithm_lab.sys.SiteGraph;
 import com.example.yy.algorithm_lab.sys.TestGraph;
 

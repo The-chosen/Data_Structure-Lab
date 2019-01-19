@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yy.algorithm_lab.R;
+import com.example.yy.algorithm_lab.activities.AdminActivities.AdminMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

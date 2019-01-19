@@ -2,6 +2,8 @@ package com.example.yy.algorithm_lab.sys;
 
 import com.example.yy.algorithm_lab.collections.IndexMinPQ;
 import com.example.yy.algorithm_lab.collections.Stack;
+import com.example.yy.algorithm_lab.db.DiEdge;
+import com.example.yy.algorithm_lab.db.Site;
 
 public class Dijkstra {
     private DiEdge[] DiEdgeTo;

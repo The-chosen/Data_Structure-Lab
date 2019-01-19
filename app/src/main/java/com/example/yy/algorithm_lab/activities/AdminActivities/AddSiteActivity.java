@@ -1,4 +1,4 @@
-package com.example.yy.algorithm_lab.activities;
+package com.example.yy.algorithm_lab.activities.AdminActivities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.yy.algorithm_lab.R;
-import com.example.yy.algorithm_lab.sys.Site;
+import com.example.yy.algorithm_lab.db.Site;
 
 public class AddSiteActivity extends AppCompatActivity {
     private int id;
@@ -34,15 +34,14 @@ public class AddSiteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 TextView warning_a = (TextView)findViewById(R.id.warning_a);
 //                将管理员新增的景点信息传入增加新路径的界面，然后跳转
-                if (((EditText)findViewById(R.id.id_content)).getText().toString().equals("")
-                        ||((EditText)findViewById(R.id.name_content)).getText().toString().equals("")
+                if (((EditText)findViewById(R.id.name_content)).getText().toString().equals("")
                         ||((EditText)findViewById(R.id.intro_content)).getText().toString().equals("")
                         ||((RadioButton)findViewById(restRadioGroup.getCheckedRadioButtonId())).equals(null)
                         ||((RadioButton)findViewById(wcRadioGroup.getCheckedRadioButtonId())).equals(null)){
                     warning_a.setVisibility(View.VISIBLE);
                 }
                 else {
-                    id = Integer.parseInt(((EditText)findViewById(R.id.id_content)).getText().toString());
+//                    这里需要添加id，从数据库里读取
                     name = ((EditText)findViewById(R.id.name_content)).getText().toString();
                     intro = ((EditText)findViewById(R.id.intro_content)).getText().toString();
                     RadioButton rest_rb = (RadioButton)findViewById(restRadioGroup.getCheckedRadioButtonId());

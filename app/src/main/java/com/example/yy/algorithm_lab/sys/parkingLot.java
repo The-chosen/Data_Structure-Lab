@@ -2,29 +2,20 @@ package com.example.yy.algorithm_lab.sys;
 
 import com.example.yy.algorithm_lab.collections.Queue;
 import com.example.yy.algorithm_lab.collections.Stack;
+import com.example.yy.algorithm_lab.db.Car;
 
 public class parkingLot {
+    public final static int MAX_SIZE = 20;
+    public final static double PRICE = 5;
     private Stack<Car> parking;
     private Stack<Car> out;
     private Queue<Car> wait;
-    private double price = 5;
+
 
     public parkingLot(Stack<Car> parking, Stack<Car> out, Queue<Car> wait) {
         this.parking = parking;
         this.out = out;
         this.wait = wait;
-    }
-
-    public double calculate(Car car) {
-        return price * (car.getLeave_time() - car.getAt_time());
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public Stack<Car> getParking() {

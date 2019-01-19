@@ -16,15 +16,25 @@
         android:textSize="23sp"
         android:typeface="monospace"/>
 
-
     <Button
-        android:id="@+id/activity_admin_main_site_btn"
-        android:layout_marginTop="210dp"
+        android:id="@+id/activity_admin_main_initialize_btn"
+        android:layout_marginTop="200dp"
         android:layout_width="340dp"
 
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_admin_main_head_title"
+        android:text="景区初始化"/>
+
+
+    <Button
+        android:id="@+id/activity_admin_main_site_btn"
+        android:layout_marginTop="10dp"
+        android:layout_width="340dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_admin_main_initialize_btn"
         android:text="景点维护"/>
 
     <Button

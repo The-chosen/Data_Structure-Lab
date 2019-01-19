@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yy.algorithm_lab.R;
+import com.example.yy.algorithm_lab.activities.AdminActivities.AdminMainActivity;
+import com.example.yy.algorithm_lab.activities.UserActivities.UserMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 

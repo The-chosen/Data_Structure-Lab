@@ -1,5 +1,7 @@
 package com.example.yy.algorithm_lab.sys;
 
+import com.example.yy.algorithm_lab.db.DiEdge;
+
 public class Hamilton {
     private String line = "";
     private DiEdge[][] Matrix;
