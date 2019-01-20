@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/activity_edge_maintain_head_title_i"
+        android:id="@+id/activity_edge_initialize_head_title_i"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -16,9 +16,19 @@
         android:typeface="monospace"/>
 
     <TextView
+        android:id="@+id/warning_e_i"
+        android:visibility="invisible"
+        android:layout_below="@+id/activity_edge_initialize_head_title_i"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请将信息填写完整！"
+        android:textColor="#f90000"/>
+
+    <TextView
         android:id="@+id/warning_edge_maintain_i"
         android:visibility="invisible"
-        android:layout_below="@+id/activity_edge_maintain_head_title_i"
+        android:layout_below="@+id/warning_e_i"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,6 +51,7 @@
             android:layout_weight="1"
             android:src="@drawable/from_icon"/>
         <EditText
+            android:id="@+id/from_entry_edit_i"
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"
@@ -64,6 +75,7 @@
             android:layout_weight="1"
             android:src="@drawable/to_icon"/>
         <EditText
+            android:id="@+id/to_entry_edit_i"
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"
@@ -88,6 +100,7 @@
             android:padding="8dp"
             android:src="@drawable/length_icon"/>
         <EditText
+            android:id="@+id/weight_edit_i"
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"

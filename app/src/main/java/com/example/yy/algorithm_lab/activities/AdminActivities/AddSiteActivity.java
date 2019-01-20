@@ -14,7 +14,6 @@ import com.example.yy.algorithm_lab.R;
 import com.example.yy.algorithm_lab.db.Site;
 
 public class AddSiteActivity extends AppCompatActivity {
-    private int id;
     private String name;
     private String intro;
     private boolean hasBreak;
@@ -36,8 +35,8 @@ public class AddSiteActivity extends AppCompatActivity {
 //                将管理员新增的景点信息传入增加新路径的界面，然后跳转
                 if (((EditText)findViewById(R.id.name_content)).getText().toString().equals("")
                         ||((EditText)findViewById(R.id.intro_content)).getText().toString().equals("")
-                        ||((RadioButton)findViewById(restRadioGroup.getCheckedRadioButtonId())).equals(null)
-                        ||((RadioButton)findViewById(wcRadioGroup.getCheckedRadioButtonId())).equals(null)){
+                        ||((RadioButton)findViewById(restRadioGroup.getCheckedRadioButtonId())) == null
+                        ||((RadioButton)findViewById(wcRadioGroup.getCheckedRadioButtonId())) == null){
                     warning_a.setVisibility(View.VISIBLE);
                 }
                 else {
@@ -47,8 +46,8 @@ public class AddSiteActivity extends AppCompatActivity {
                     RadioButton rest_rb = (RadioButton)findViewById(restRadioGroup.getCheckedRadioButtonId());
                     hasBreak = ("rest_y" == rest_rb.getText().toString());
                     RadioButton wc_rb = (RadioButton)findViewById(wcRadioGroup.getCheckedRadioButtonId());
-                    hasBreak = ("wc_y" == wc_rb.getText().toString());
-                    Site site = new Site(id, name, intro, hasBreak, hasWC);
+                    hasWC = ("wc_y" == wc_rb.getText().toString());
+                    Site site = new Site(name, intro, hasBreak, hasWC);
                     Intent intent = new Intent(v.getContext(), AddEdgeActivity.class);
                     intent.putExtra("newSite", site);
                     startActivity(intent);

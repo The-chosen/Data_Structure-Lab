@@ -2,8 +2,6 @@ package com.example.yy.algorithm_lab.util;
 
 import com.example.yy.algorithm_lab.collections.KMP;
 import com.example.yy.algorithm_lab.collections.Merge;
-import com.example.yy.algorithm_lab.collections.Queue;
-import com.example.yy.algorithm_lab.collections.Stack;
 import com.example.yy.algorithm_lab.db.Car;
 import com.example.yy.algorithm_lab.db.DiEdge;
 import com.example.yy.algorithm_lab.db.Publish;
@@ -12,7 +10,8 @@ import com.example.yy.algorithm_lab.sys.Dijkstra;
 import com.example.yy.algorithm_lab.sys.SiteGraph;
 import com.example.yy.algorithm_lab.sys.parkingLot;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.LitePal;
+import org.litepal.crud.LitePalSupport;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,12 +32,13 @@ public class DbControl {
     public static void addNewEdge(String from, String to, double weight) {
         DiEdge diEdge = new DiEdge();
         diEdge.setWeight(weight);
-        List<Site> sites = DataSupport.findAll(Site.class);
+        diEdge.setFromName(from);
+        diEdge.setToName(to);
+        List<Site> sites = LitePal.findAll(Site.class);
         for (Site site: sites
              ) {
             if (site.getName().equals(from)) {
-                diEdge.setFrom(site);
-                if (site.getDiEdges().equals(null)) {
+                if (site.getDiEdges() == null) {
                     List<DiEdge> list = new ArrayList<>();
                     list.add(diEdge);
                     site.setDiEdges(list);
@@ -52,16 +52,13 @@ public class DbControl {
                 }
             }
 
-            if (site.getName().equals(to)) {
-                diEdge.setTo(site);
-            }
         }
         diEdge.save();
     }
 
 //    在数据库中删除景点
     public static boolean deleteSite(String name) {
-        List<Site> sites = DataSupport.findAll(Site.class);
+        List<Site> sites = LitePal.findAll(Site.class);
         boolean flag = false;
         for (Site site: sites
                 ) {
@@ -71,10 +68,10 @@ public class DbControl {
                 break;
             }
         }
-        List<DiEdge> diEdges = DataSupport.findAll(DiEdge.class);
+        List<DiEdge> diEdges = LitePal.findAll(DiEdge.class);
         for (DiEdge diEdge: diEdges
              ) {
-            if (diEdge.getFrom().getName().equals(name)
+            if (diEdge.getFromName().equals(name)
                     || diEdge.getTo().getName().equals(name)) {
                 diEdge.delete();
             }
@@ -103,18 +100,27 @@ public class DbControl {
 
 //    景区景点分布图
     public static SiteGraph SiteDistr() {
-        List<Site> sites = DataSupport.findAll(Site.class);
-        List<DiEdge> diEdges = DataSupport.findAll(DiEdge.class);
-        SiteGraph siteGraph = new SiteGraph();
-        for (Site site: sites
-             ) {
-            site.setId(siteGraph.V());
-            site.save();
-            siteGraph.addNewSite();
+        List<Site> sites = LitePal.findAll(Site.class);
+        List<DiEdge> diEdges = LitePal.findAll(DiEdge.class);
+        SiteGraph siteGraph = new SiteGraph(sites.size());
+        for (int i = 0; i < sites.size(); i++) {
+            Site site = sites.get(i);
+            site.setMyId(i);
         }
 
         for (DiEdge diEdge: diEdges
              ) {
+            String fromName = diEdge.getFromName();
+            String toName = diEdge.getToName();
+            for (Site site: sites
+                 ) {
+                if (site.getName().equals(fromName)) {
+                    diEdge.setFrom(site);
+                }
+                if (site.getName().equals(toName)) {
+                    diEdge.setTo(site);
+                }
+            }
             siteGraph.addDiEdge(diEdge);
         }
 
@@ -125,7 +131,7 @@ public class DbControl {
 //    若没有找到则返回null
     public static Site searchSite(String keyWord) {
         KMP kmp = new KMP(keyWord);
-        List<Site> sites = DataSupport.findAll(Site.class);
+        List<Site> sites = LitePal.findAll(Site.class);
         Site searchedOne = null;
         for (Site site: sites
              ) {
@@ -142,7 +148,7 @@ public class DbControl {
 
 //    景点热度排序
     public static Site[] sortSite() {
-        List<Site> sites = DataSupport.findAll(Site.class);
+        List<Site> sites = LitePal.findAll(Site.class);
         Site[] populLs = new Site[sites.size()];
         for (int i = 0; i < sites.size(); i++) {
             populLs[i] = sites.get(i);
@@ -157,12 +163,17 @@ public class DbControl {
 //    }
 
 //    最短路径指导
-    public static String shortest(String from, String to) {
-        List<Site> sites = DataSupport.findAll(Site.class);
+    public static Dijkstra shortest(String from, String to) {
+        SiteGraph siteGraph = SiteDistr();
+        List<Site> sites = LitePal.findAll(Site.class);
         Site fromSite = null;
         Site toSite = null;
+        for (int i = 0; i < sites.size(); i++) {
+            Site site = sites.get(i);
+            site.setMyId(i);
+        }
         for (Site site: sites
-             ) {
+                ) {
             if (site.getName().equals(from)) {
                 fromSite = site;
             }
@@ -170,14 +181,13 @@ public class DbControl {
                 toSite = site;
             }
         }
-        Dijkstra dijkstra = new Dijkstra(SiteDistr(), fromSite);
-        dijkstra.setLine(toSite);
-        return dijkstra.getLine();
+        Dijkstra dijkstra = new Dijkstra(siteGraph, fromSite, toSite);
+        return dijkstra;
     }
 
 //    入库
     public static int enterParkingLot(int number) {
-        List<Car> cars = DataSupport.findAll(Car.class);
+        List<Car> cars = LitePal.findAll(Car.class);
         int cnt = 0; //统计停泊的车辆个数
         int N = parkingLot.MAX_SIZE;
         for (Car car: cars
@@ -209,7 +219,7 @@ public class DbControl {
 
 //    出库
     public static double outParkingLot(int number) {
-        List<Car> cars = DataSupport.findAll(Car.class);
+        List<Car> cars = LitePal.findAll(Car.class);
         Car outCar = new Car();
         for (Car car: cars
                 ) {
@@ -235,7 +245,7 @@ public class DbControl {
 
 //    看通知通告
     public static String[] getPublish() {
-        List<Publish> publishes = DataSupport.findAll(Publish.class);
+        List<Publish> publishes = LitePal.findAll(Publish.class);
         String[] p = new String[publishes.size()];
         for (int i = 0; i < p.length; i++) {
             p[i] = publishes.get(i).getPublish();

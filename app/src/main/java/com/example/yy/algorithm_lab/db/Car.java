@@ -1,10 +1,10 @@
 package com.example.yy.algorithm_lab.db;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
 import java.util.Calendar;
 
-public class Car extends DataSupport {
+public class Car extends LitePalSupport {
     private int number;
     private Calendar at_time;
     private String state; //只有两种状态，p(parking)或w(waiting)

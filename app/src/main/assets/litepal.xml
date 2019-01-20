@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="demo" />
+    <version value="1" />
+    <list>
+        <mapping class="com.example.yy.algorithm_lab.db.Car"/>
+        <mapping class="com.example.yy.algorithm_lab.db.DiEdge"/>
+        <mapping class="com.example.yy.algorithm_lab.db.Site"/>
+        <mapping class="com.example.yy.algorithm_lab.db.Publish"/>
+    </list>
+</litepal>

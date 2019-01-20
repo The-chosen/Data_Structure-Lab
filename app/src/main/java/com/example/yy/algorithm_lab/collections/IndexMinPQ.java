@@ -1,6 +1,8 @@
 package com.example.yy.algorithm_lab.collections;
 
-public class IndexMinPQ<Item extends Comparable<Item>> {
+import java.io.Serializable;
+
+public class IndexMinPQ<Item extends Comparable<Item>> implements Serializable {
     private int maxN;
     private int n;
     private int[] pq;

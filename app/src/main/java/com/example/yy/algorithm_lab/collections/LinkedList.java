@@ -1,8 +1,9 @@
 package com.example.yy.algorithm_lab.collections;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
-public class LinkedList<Item> implements Iterable<Item>{
+public class LinkedList<Item> implements Iterable<Item>, Serializable {
     static java.util.LinkedList a = new java.util.LinkedList();
     public int N;
     public Node<Item> first;

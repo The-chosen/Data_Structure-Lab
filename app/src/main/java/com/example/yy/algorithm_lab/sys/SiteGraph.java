@@ -4,13 +4,23 @@ import com.example.yy.algorithm_lab.collections.LinkedList;
 import com.example.yy.algorithm_lab.db.DiEdge;
 import com.example.yy.algorithm_lab.db.Site;
 
-public class SiteGraph {
+import java.io.Serializable;
+
+public class SiteGraph implements Serializable {
     private int V = 0;
     private int E;//有向图的边数目
     private LinkedList<LinkedList<DiEdge>> DiAdj;//有向图的边集合
 
     public SiteGraph() {
         DiAdj =  new LinkedList<>();
+    }
+
+    public SiteGraph(int V) {
+        this.V = V;
+        DiAdj =  new LinkedList<>();
+        for (int i = 0; i < V; i++) {
+            DiAdj.add(new LinkedList<DiEdge>());
+        }
     }
 
     public int V() {
@@ -24,13 +34,14 @@ public class SiteGraph {
     public void addDiEdge(DiEdge e) {
         Site v = e.from();
         Site w = e.to();
-        DiAdj.get(v.getId()).add(e);
+        DiAdj.get(v.getMyId()).add(e);
 //        因为是无向图，故一次增加两条边
         DiEdge inverseE = new DiEdge(w, v, e.weight());
-        DiAdj.get(w.getId()).add(inverseE);
+        DiAdj.get(w.getMyId()).add(inverseE);
         E++;
     }
 
+//    待删除
     public void addNewSite() {
         DiAdj.add(new LinkedList<DiEdge>());
         V++;
@@ -38,8 +49,8 @@ public class SiteGraph {
 
 //    删除一个景点，不仅删除该景点，还删除该景点周围的所有路
     public void removeDiSite(Site s) {
-        int removedIndex = s.getId();
-        DiAdj.set(s.getId(), null);
+        int removedIndex = s.getMyId();
+        DiAdj.set(s.getMyId(), null);
 
         for (int i = 0; i < DiAdj.size(); i++) {
             if (i == removedIndex) {continue;}
@@ -86,7 +97,7 @@ public class SiteGraph {
             }
             for (DiEdge e:DiAdj.get(i)
                  ) {
-                matrix[i][e.to().getId()] = e;
+                matrix[i][e.to().getMyId()] = e;
             }
             matrix[i][i] = new DiEdge(self, self, 0);
         }

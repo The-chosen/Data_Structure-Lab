@@ -16,7 +16,7 @@
         android:typeface="monospace"/>
 
     <TextView
-        android:id="@+id/warning_a_i"
+        android:id="@+id/warning_i"
         android:visibility="invisible"
         android:layout_below="@+id/activity_add_site_head_title_i"
         android:layout_marginTop="5dp"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@id/warning_a_i"
+        android:layout_below="@id/warning_i"
         android:background="#fff">
         <ImageView
             android:layout_width="0dp"
@@ -197,7 +197,7 @@
             android:padding="6dp"
             android:src="@drawable/intro_icon"/>
         <EditText
-            android:id="@+id/intro_content"
+            android:id="@+id/intro_content_i"
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"

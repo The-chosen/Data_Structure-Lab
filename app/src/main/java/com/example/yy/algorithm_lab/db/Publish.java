@@ -1,8 +1,8 @@
 package com.example.yy.algorithm_lab.db;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
-public class Publish extends DataSupport {
+public class Publish extends LitePalSupport {
     private String publish;
 
     public String getPublish() {

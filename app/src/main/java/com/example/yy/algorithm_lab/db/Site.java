@@ -2,13 +2,14 @@ package com.example.yy.algorithm_lab.db;
 
 import android.support.annotation.NonNull;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Site extends DataSupport implements Serializable, Comparable<Site>{
+public class Site extends LitePalSupport implements Serializable, Comparable<Site>{
     private int id;
+    private int myId;
     private String name;
     private String intro;
     private int popul;
@@ -18,16 +19,22 @@ public class Site extends DataSupport implements Serializable, Comparable<Site>{
 
     public Site() {}
 
-    public Site(int id, String name) {
-        this.id = id;
+    public Site(int myId, String name) {
+        this.myId = myId;
         this.name = name;
     }
 
-    public Site(int id, String name, String intro, boolean hasBreak, boolean hasWC) {
-        this.id = id;
+    public Site(int myId, String name, String intro, boolean hasBreak, boolean hasWC) {
+        this.myId = myId;
         this.name = name;
         this.intro = intro;
-        this.popul = popul;
+        this.hasBreak = hasBreak;
+        this.hasWC = hasWC;
+    }
+
+    public Site(String name, String intro, boolean hasBreak, boolean hasWC) {
+        this.name = name;
+        this.intro = intro;
         this.hasBreak = hasBreak;
         this.hasWC = hasWC;
     }
@@ -78,6 +85,14 @@ public class Site extends DataSupport implements Serializable, Comparable<Site>{
 
     public void setHasWC(boolean hasWC) {
         this.hasWC = hasWC;
+    }
+
+    public int getMyId() {
+        return myId;
+    }
+
+    public void setMyId(int myId) {
+        this.myId = myId;
     }
 
     public List<DiEdge> getDiEdges() {

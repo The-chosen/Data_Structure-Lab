@@ -2,11 +2,15 @@ package com.example.yy.algorithm_lab.db;
 
 import com.example.yy.algorithm_lab.db.Site;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
-public class DiEdge extends DataSupport {
+import java.io.Serializable;
+
+public class DiEdge extends LitePalSupport implements Serializable {
     private Site from;
     private Site to;
+    private String fromName;
+    private String toName;
     private double weight;
 
     public DiEdge() {}
@@ -53,8 +57,24 @@ public class DiEdge extends DataSupport {
         this.weight = weight;
     }
 
+    public String getFromName() {
+        return fromName;
+    }
+
+    public void setFromName(String fromName) {
+        this.fromName = fromName;
+    }
+
+    public String getToName() {
+        return toName;
+    }
+
+    public void setToName(String toName) {
+        this.toName = toName;
+    }
+
     @Override
     public String toString() {
-        return String.format("%d->%d %.2f", from, to, weight);
+        return String.format("%s->%s %.2f", from.getName(), to.getName(), weight);
     }
 }

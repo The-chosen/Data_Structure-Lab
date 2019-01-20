@@ -7,23 +7,24 @@ public class TestGraph {
     private  SiteGraph graph;
 
     public SiteGraph getGraph() {
-        SiteGraph siteGraph = new SiteGraph();
-        Site beimen = new Site(siteGraph.V(), "北门");
-        siteGraph.addNewSite();
-        Site shizishan = new Site(siteGraph.V(), "狮子山");
-        siteGraph.addNewSite();
-        Site xianyunshi = new Site(siteGraph.V(), "仙云石");
-        siteGraph.addNewSite();
-        Site yixiantian = new Site(siteGraph.V(), "一线天");
-        siteGraph.addNewSite();
-        Site feiliupu = new Site(siteGraph.V(), "飞流瀑");
-        siteGraph.addNewSite();
-        Site xianwuhu = new Site(siteGraph.V(), "仙武湖");
-        siteGraph.addNewSite();
-        Site jiuquqiao = new Site(siteGraph.V(), "九曲桥");
-        siteGraph.addNewSite();
-        Site guanyuntai = new Site(siteGraph.V(), "观云台");
-        siteGraph.addNewSite();
+
+        Site beimen = new Site(0, "北门");
+
+        Site shizishan = new Site(1, "狮子山");
+
+        Site xianyunshi = new Site(2, "仙云石");
+
+        Site yixiantian = new Site(3, "一线天");
+
+        Site feiliupu = new Site(4, "飞流瀑");
+
+        Site xianwuhu = new Site(5, "仙武湖");
+
+        Site jiuquqiao = new Site(6, "九曲桥");
+
+        Site guanyuntai = new Site(7, "观云台");
+
+        SiteGraph siteGraph = new SiteGraph(8);
 
         DiEdge diEdge1 = new DiEdge(beimen, shizishan, 9);
         DiEdge diEdge2 = new DiEdge(beimen, xianyunshi, 8);

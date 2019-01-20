@@ -53,4 +53,14 @@
         android:background="#fff"
         android:text=""/>
 
+    <Button
+        android:id="@+id/shortest_finish_btn"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="完成"
+        android:layout_below="@id/shortest_line"
+        android:layout_marginTop="260dp"
+        android:layout_centerHorizontal="true"
+        />
+
 </RelativeLayout>
