@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-    <TextView
-        android:id="@+id/maintain_fail_head_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-
-        android:layout_marginTop="120dp"
-        android:text="维护失败！"
-        android:textColor="#000"
-        android:textSize="33sp"
-        android:typeface="monospace"/>
-
-    <TextView
-        android:id="@+id/fail_reason"
-        android:layout_below="@+id/maintain_fail_head_title"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:text=""
-        android:layout_marginTop="10dp"
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/maintain_fail_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="120dp"
+            android:text="维护失败！"
+            android:textColor="#fff"
+            android:textSize="33sp"
+            android:typeface="monospace"/>
+
+        <TextView
+            android:id="@+id/fail_reason"
+            android:layout_below="@+id/maintain_fail_head_title"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:text=""
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
 
-    <Button
-        android:id="@+id/maintain_fail"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:text="完成"
-        android:layout_below="@id/fail_reason"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        />
+        <Button
+            android:id="@+id/maintain_fail"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="完成"
+            android:layout_below="@id/fail_reason"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</FrameLayout>

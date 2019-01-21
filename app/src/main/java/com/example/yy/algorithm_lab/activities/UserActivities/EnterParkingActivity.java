@@ -1,4 +1,4 @@
-package com.example.yy.algorithm_lab.activities.AdminActivities;
+package com.example.yy.algorithm_lab.activities.UserActivities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,11 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.yy.algorithm_lab.R;
-import com.example.yy.algorithm_lab.activities.MainActivity;
-import com.example.yy.algorithm_lab.activities.UserActivities.SiteDistrActivity;
 import com.example.yy.algorithm_lab.util.HttpUtil;
 
 import java.io.IOException;
@@ -23,13 +22,15 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class AdminMainActivity extends AppCompatActivity {
+public class EnterParkingActivity extends AppCompatActivity {
     private ImageView bingPicImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_main);
+        setContentView(R.layout.activity_parking_enter);
+
+
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(
@@ -49,42 +50,30 @@ public class AdminMainActivity extends AppCompatActivity {
         }
 
 
+        Intent intent = getIntent();
+        String rest = (String)intent.getSerializableExtra("rest");
+        TextView waitingCar = (TextView)findViewById(R.id.number_of_waitingCar);
 
 
-        Button initialize = (Button)findViewById(R.id.activity_admin_main_initialize_btn);
-        Button insertSite = (Button)findViewById(R.id.activity_admin_main_site_btn);
-        Button insertEdge = (Button)findViewById(R.id.activity_admin_main_edge_btn);
-        Button publish = (Button)findViewById(R.id.activity_admin_main_publish_btn);
+        TextView congr = (TextView)findViewById(R.id.congratulation);
+        TextView wait = (TextView)findViewById(R.id.need_waiting);
+        Button finish = (Button)findViewById(R.id.finish_enter_btn);
+        if (Integer.parseInt(rest) > 0) {
+            waitingCar.setText(rest);
+            congr.setVisibility(View.VISIBLE);
+            wait.setVisibility(View.INVISIBLE);
+        }
+        else {
+            waitingCar.setText("0");
+            congr.setVisibility(View.INVISIBLE);
+            wait.setVisibility(View.VISIBLE);
+        }
 
-        initialize.setOnClickListener(new View.OnClickListener() {
+        finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SiteInitializeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        insertSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SiteMaintainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        insertEdge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), EdgeMaintainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        publish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PublishActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(v.getContext(), UserMainActivity.class);
+                startActivity(intent1);
             }
         });
     }
@@ -101,22 +90,16 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String bingPic = response.body().string();
                 SharedPreferences.Editor editor = PreferenceManager
-                        .getDefaultSharedPreferences(AdminMainActivity.this).edit();
+                        .getDefaultSharedPreferences(EnterParkingActivity.this).edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(AdminMainActivity.this).load(bingPic).into(bingPicImg);
+                        Glide.with(EnterParkingActivity.this).load(bingPic).into(bingPicImg);
                     }
                 });
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }

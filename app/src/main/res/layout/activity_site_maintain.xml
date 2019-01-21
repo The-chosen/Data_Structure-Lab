@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/activity_site_maintain_head_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="20dp"
-        android:text="景点维护"
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:typeface="monospace"/>
-
-    <Button
-        android:id="@+id/activity_site_maintian_insert_btn"
-        android:layout_marginTop="285dp"
-        android:layout_width="340dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_site_maintain_head_title"
-        android:text="插入新景点"/>
-
-    <Button
-        android:id="@+id/activity_site_maintain_change_btn"
-        android:layout_marginTop="10dp"
-        android:layout_width="340dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_site_maintian_insert_btn"
-        android:text="修改景点信息"/>
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
-    <Button
-        android:id="@+id/activity_site_maintain_delete_btn"
-        android:layout_marginTop="10dp"
-        android:layout_width="340dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_site_maintain_change_btn"
-        android:text="删除景点"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/activity_site_maintain_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="20dp"
+            android:text="景点维护"
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:typeface="monospace"/>
+
+        <Button
+            android:id="@+id/activity_site_maintian_insert_btn"
+            android:layout_marginTop="285dp"
+            android:layout_width="340dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_site_maintain_head_title"
+            android:text="插入新景点"/>
+
+        <Button
+            android:id="@+id/activity_site_maintain_change_btn"
+            android:layout_marginTop="10dp"
+            android:layout_width="340dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_site_maintian_insert_btn"
+            android:text="修改景点信息"/>
+
+
+        <Button
+            android:id="@+id/activity_site_maintain_delete_btn"
+            android:layout_marginTop="10dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            android:layout_width="340dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_site_maintain_change_btn"
+            android:text="删除景点"/>
 
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

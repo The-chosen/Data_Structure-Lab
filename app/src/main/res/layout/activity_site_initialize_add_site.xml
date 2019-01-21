@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="#eee">
 
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/activity_add_site_head_title_i"
         android:layout_width="wrap_content"
@@ -11,7 +20,7 @@
 
         android:layout_marginTop="20dp"
         android:text="景点初始化"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
@@ -33,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_below="@id/warning_i"
-        android:background="#fff">
+        android:background="#8000">
         <ImageView
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -45,6 +54,8 @@
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
             android:layout_height="40dp"
             android:layout_weight="9"
             android:hint="景点名字"/>
@@ -56,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_below="@id/site_name_i"
-        android:background="#fff">
+        android:background="#8000">
 
         <LinearLayout
             android:id="@+id/up1_i"
@@ -74,6 +85,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
+                android:textColor="#fff"
                 android:layout_weight="9"
                 android:textSize="20sp"
                 android:text="有无休息室"/>
@@ -99,6 +111,7 @@
                 <RadioButton
                     android:id="@+id/rest_y_i"
                     android:textSize="20sp"
+                    android:textColor="#fff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="有"/>
@@ -106,6 +119,7 @@
                     android:id="@+id/rest_n_i"
                     android:layout_marginLeft="100dp"
                     android:textSize="20sp"
+                    android:textColor="#fff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="无"/>
@@ -122,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_below="@id/site_hasbreak_i"
-        android:background="#fff">
+        android:background="#8000">
 
         <LinearLayout
             android:id="@+id/up2_i"
@@ -141,6 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="9"
+                android:textColor="#fff"
                 android:textSize="20sp"
                 android:text="有无洗手间"/>
         </LinearLayout>
@@ -167,11 +182,13 @@
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
                     android:text="有"/>
                 <RadioButton
                     android:id="@+id/wc_n_i"
                     android:layout_marginLeft="100dp"
                     android:textSize="20sp"
+                    android:textColor="#fff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="无"/>
@@ -189,7 +206,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_below="@id/site_hasWC_i"
-        android:background="#fff">
+        android:background="#8000">
         <ImageView
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -201,6 +218,8 @@
             android:layout_centerVertical="true"
             android:background="@null"
             android:layout_width="0dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
             android:layout_height="170dp"
             android:paddingTop="7dp"
             android:gravity="top"
@@ -222,6 +241,8 @@
             <Button
                 android:id="@+id/add_site_btn_i"
                 android:layout_width="150dp"
+                android:background="#7b50504c"
+                android:textColor="#fff"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="继续增添"/>
@@ -234,6 +255,8 @@
             <Button
                 android:id="@+id/finish_site_btn_i"
                 android:layout_width="150dp"
+                android:background="#7b50504c"
+                android:textColor="#fff"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="增添完成"
@@ -246,3 +269,5 @@
 
 
 </RelativeLayout>
+
+</FrameLayout>

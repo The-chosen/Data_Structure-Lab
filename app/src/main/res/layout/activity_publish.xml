@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/activity_publish_head_title"
@@ -11,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="布告栏"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
@@ -28,23 +36,28 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
+        android:layout_height="wrap_content"
         android:text="发布您的通知："
-        android:textSize="18dp"
+        android:textColor="#fff"
+        android:textSize="23dp"
         android:layout_below="@id/warning_publish"
         android:layout_marginTop="30dp"/>
 
     <RelativeLayout
         android:id="@+id/enter_text_area"
-        android:background="#fff"
+        android:background="#8000"
         android:layout_below="@id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        >
 
         <EditText
+            android:id="@+id/enter_text_area_content"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
             android:background="@null"
             android:inputType="textMultiLine"
             android:gravity="top"
@@ -57,6 +70,8 @@
     <Button
         android:id="@+id/publish_btn"
         android:layout_width="340dp"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:text="发布公告"
         android:layout_below="@id/enter_text_area"
@@ -65,3 +80,5 @@
         />
 
 </RelativeLayout>
+
+</FrameLayout>

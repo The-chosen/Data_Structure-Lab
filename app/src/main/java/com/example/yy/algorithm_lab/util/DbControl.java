@@ -25,7 +25,9 @@ public class DbControl {
         site.setIntro(intro);
         site.setHasBreak(hasBreak);
         site.setHasWC(hasWC);
-        site.save();
+        boolean s = site.save();
+        System.out.println("WWWW!" + s);
+        System.out.println("WWWW " + site.getIntro());
     }
 
 //    向数据库里添加新的边
@@ -56,6 +58,22 @@ public class DbControl {
         diEdge.save();
     }
 
+//    在数据库里删除一条边
+    public static void deleteEdge(String from, String to) {
+        List<DiEdge> diEdges = LitePal.findAll(DiEdge.class);
+        List<Site> sites = LitePal.findAll(Site.class);
+        for (DiEdge diEdge: diEdges
+             ) {
+            if ((diEdge.getFromName().equals(from) && diEdge.getToName().equals(to))
+                    || (diEdge.getFromName().equals(to) && diEdge.getToName().equals(from))) {
+                diEdge.delete();
+                diEdge.clearSavedState();
+                break;
+            }
+        }
+
+    }
+
 //    在数据库中删除景点
     public static boolean deleteSite(String name) {
         List<Site> sites = LitePal.findAll(Site.class);
@@ -64,6 +82,7 @@ public class DbControl {
                 ) {
             if (site.getName().equals(name)) {
                 site.delete();
+                site.clearSavedState();
                 flag = true;
                 break;
             }
@@ -72,8 +91,9 @@ public class DbControl {
         for (DiEdge diEdge: diEdges
              ) {
             if (diEdge.getFromName().equals(name)
-                    || diEdge.getTo().getName().equals(name)) {
+                    || diEdge.getToName().equals(name)) {
                 diEdge.delete();
+                diEdge.clearSavedState();
             }
         }
 
@@ -130,6 +150,7 @@ public class DbControl {
 //    景点关键词查找
 //    若没有找到则返回null
     public static Site searchSite(String keyWord) {
+        System.out.println("EEEE:" + keyWord);
         KMP kmp = new KMP(keyWord);
         List<Site> sites = LitePal.findAll(Site.class);
         Site searchedOne = null;
@@ -138,7 +159,7 @@ public class DbControl {
             String name = site.getName();
             String intro = site.getIntro();
             if (kmp.search(name) != name.length()
-                    && kmp.search(intro) != intro.length()) {
+                    || kmp.search(intro) != intro.length()) {
                 searchedOne = site;
                 break;
             }
@@ -147,14 +168,19 @@ public class DbControl {
     }
 
 //    景点热度排序
-    public static Site[] sortSite() {
+    public static List<site_item> sortSite() {
         List<Site> sites = LitePal.findAll(Site.class);
         Site[] populLs = new Site[sites.size()];
         for (int i = 0; i < sites.size(); i++) {
             populLs[i] = sites.get(i);
         }
         Merge.sort(populLs);
-        return populLs;
+        List<site_item> site_items = new ArrayList<>();
+        for (int i = 0; i < sites.size(); i++) {
+            site_item site_item = new site_item(i + 1 + "", populLs[i].getName(), populLs[i].getIntro());
+            site_items.add(site_item);
+        }
+        return site_items;
     }
 
 //    导游路线图
@@ -200,7 +226,7 @@ public class DbControl {
         if (rest > 0) {
             Calendar instance = Calendar.getInstance();
             Car car = new Car();
-            car.setAt_time(instance);
+            car.setAt_time(instance.getTimeInMillis() + "");
             car.setNumber(number);
             car.setState("p");
             car.save();
@@ -208,7 +234,7 @@ public class DbControl {
         else if (rest == 0) {
             Calendar instance = Calendar.getInstance();
             Car car = new Car();
-            car.setAt_time(instance);
+            car.setAt_time(instance.getTimeInMillis() + "");
             car.setNumber(number);
             car.setState("w");
             car.save();
@@ -238,7 +264,7 @@ public class DbControl {
             }
         }
         Calendar instance = Calendar.getInstance();
-        long timeMinus = (instance.getTimeInMillis() - outCar.getAt_time().getTimeInMillis()) / (60 * 60 * 1000);
+        long timeMinus = (instance.getTimeInMillis() - Long.parseLong(outCar.getAt_time())) / (60 * 1000);
         double cost = parkingLot.PRICE * timeMinus;
         return cost;
     }
@@ -251,5 +277,15 @@ public class DbControl {
             p[i] = publishes.get(i).getPublish();
         }
         return p;
+    }
+
+//    获得景点名字列表
+    public static String[] getNames() {
+        List<Site> sites = LitePal.findAll(Site.class);
+        String[] names = new String[sites.size()];
+        for (int i = 0; i < sites.size(); i++) {
+            names[i] = sites.get(i).getName();
+        }
+        return names;
     }
 }

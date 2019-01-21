@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
 
-
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/activity_shortest_road_head_title"
         android:layout_width="wrap_content"
@@ -13,7 +20,7 @@
 
         android:layout_marginTop="30dp"
         android:text="最短路径指导"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
@@ -34,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_below="@id/activity_shortest_road_warning"
-        android:background="#fff"
+        android:background="#8000"
         >
         <ImageView
             android:layout_width="0dp"
@@ -47,6 +54,8 @@
             android:background="@null"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
             android:layout_weight="9"
             android:hint="从此处出发"
             />
@@ -59,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_below="@id/from_entry"
-        android:background="#fff">
+        android:background="#8000">
         <ImageView
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -71,6 +80,8 @@
             android:background="@null"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:textColorHint="#fff"
+            android:textColor="#fff"
             android:layout_weight="9"
             android:hint="到达此处"/>
     </LinearLayout>
@@ -79,9 +90,13 @@
         android:id="@+id/activity_shortest_search_btn"
         android:layout_centerHorizontal="true"
         android:layout_width="340dp"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:layout_below="@id/to_entry"
         android:layout_marginTop="50dp"
         android:text="查找"/>
 
 </RelativeLayout>
+
+</FrameLayout>

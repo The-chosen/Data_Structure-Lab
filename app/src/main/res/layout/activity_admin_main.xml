@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
+
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/activity_admin_main_head_title"
@@ -12,13 +23,15 @@
 
         android:layout_marginTop="100dp"
         android:text="功能选择"
-        android:textColor="#000"
+        android:textColor="#fff"
         android:textSize="23sp"
         android:typeface="monospace"/>
 
     <Button
         android:id="@+id/activity_admin_main_initialize_btn"
         android:layout_marginTop="200dp"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_width="340dp"
 
         android:layout_centerHorizontal="true"
@@ -34,12 +47,16 @@
 
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_below="@id/activity_admin_main_initialize_btn"
         android:text="景点维护"/>
 
     <Button
         android:id="@+id/activity_admin_main_edge_btn"
         android:layout_marginTop="10dp"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_width="340dp"
 
         android:layout_centerHorizontal="true"
@@ -53,8 +70,12 @@
         android:layout_width="340dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:background="#7b50504c"
+        android:textColor="#fff"
         android:layout_below="@id/activity_admin_main_edge_btn"
         android:text="发布通知通告"/>
 
 
 </RelativeLayout>
+
+</FrameLayout>

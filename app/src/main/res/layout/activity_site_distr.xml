@@ -1,22 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
 
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/activity_site_distr_head_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+    <ScrollView
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        android:layout_marginTop="30dp"
-        android:text="景区景点分布图"
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:typeface="monospace"/>
+            <TextView
+                android:id="@+id/activity_site_distr_head_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+
+                android:layout_marginTop="30dp"
+                android:text="景区景点分布图"
+                android:textColor="#fff"
+                android:textSize="23sp"
+                android:typeface="monospace"/>
+
+            <TextView
+                android:id="@+id/title_1"
+                android:layout_below="@id/activity_site_distr_head_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分布图:"
+                android:layout_marginLeft="10dp"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                />
+
+            <ImageView
+                android:id="@+id/sites_pic"
+                android:layout_below="@id/activity_site_distr_head_title"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/sites_pic"/>
+
+            <TextView
+                android:id="@+id/title_2"
+                android:layout_below="@id/sites_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="分布表:"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                />
+
+                <HorizontalScrollView
+                    android:layout_marginLeft="10dp"
+                    android:background="#8000"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/title_2"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="match_parent">
+                    <TableLayout
+                        android:id="@+id/table"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </TableLayout>
+
+                </HorizontalScrollView>
 
 
+        </RelativeLayout>
 
-</RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

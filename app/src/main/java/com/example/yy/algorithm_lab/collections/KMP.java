@@ -4,11 +4,10 @@ public class KMP {
     private final int R;
     private int[][] dfa;
 
-    private char[] pattern;
     private String pat;
 
     public KMP(String pat) {
-        this.R = 256;
+        this.R = 150000;
         this.pat = pat;
 
         int m = pat.length();

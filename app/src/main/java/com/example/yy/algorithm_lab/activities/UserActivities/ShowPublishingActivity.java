@@ -1,6 +1,5 @@
-package com.example.yy.algorithm_lab.activities.AdminActivities;
+package com.example.yy.algorithm_lab.activities.UserActivities;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -8,13 +7,14 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
 import com.example.yy.algorithm_lab.R;
-import com.example.yy.algorithm_lab.activities.MainActivity;
-import com.example.yy.algorithm_lab.activities.UserActivities.SiteDistrActivity;
+import com.example.yy.algorithm_lab.activities.LoginActivity;
+import com.example.yy.algorithm_lab.util.DbControl;
 import com.example.yy.algorithm_lab.util.HttpUtil;
 
 import java.io.IOException;
@@ -23,13 +23,24 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class AdminMainActivity extends AppCompatActivity {
+public class ShowPublishingActivity extends AppCompatActivity {
+    private String[] publishLs = DbControl.getPublish();
     private ImageView bingPicImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_main);
+        setContentView(R.layout.activity_show_publishing);
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                ShowPublishingActivity.this, R.layout.my_simple_list_item_1, publishLs
+        );
+        ListView listView = (ListView)findViewById(R.id.show_publishing);
+        listView.setAdapter(adapter);
+
+
         if (Build.VERSION.SDK_INT >= 21) {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(
@@ -47,46 +58,6 @@ public class AdminMainActivity extends AppCompatActivity {
         else {
             loadBingPic();
         }
-
-
-
-
-        Button initialize = (Button)findViewById(R.id.activity_admin_main_initialize_btn);
-        Button insertSite = (Button)findViewById(R.id.activity_admin_main_site_btn);
-        Button insertEdge = (Button)findViewById(R.id.activity_admin_main_edge_btn);
-        Button publish = (Button)findViewById(R.id.activity_admin_main_publish_btn);
-
-        initialize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SiteInitializeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        insertSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), SiteMaintainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        insertEdge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), EdgeMaintainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        publish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PublishActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void loadBingPic() {
@@ -101,22 +72,16 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 final String bingPic = response.body().string();
                 SharedPreferences.Editor editor = PreferenceManager
-                        .getDefaultSharedPreferences(AdminMainActivity.this).edit();
+                        .getDefaultSharedPreferences(ShowPublishingActivity.this).edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(AdminMainActivity.this).load(bingPic).into(bingPicImg);
+                        Glide.with(ShowPublishingActivity.this).load(bingPic).into(bingPicImg);
                     }
                 });
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }

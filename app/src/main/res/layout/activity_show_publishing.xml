@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <ImageView
         android:id="@+id/bing_pic_img"
@@ -12,20 +13,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
         <TextView
-            android:id="@+id/activity_guidline_head_title"
+            android:id="@+id/activity_show_publishing_head_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
 
-            android:layout_marginTop="30dp"
-            android:text="导游路线图"
+            android:layout_marginTop="20dp"
+            android:text="管理员的通知通告"
             android:textColor="#fff"
             android:textSize="23sp"
             android:typeface="monospace"/>
 
 
+        <ListView
+            android:id="@+id/show_publishing"
+            android:layout_below="@id/activity_show_publishing_head_title"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
     </RelativeLayout>
-
-
 </FrameLayout>

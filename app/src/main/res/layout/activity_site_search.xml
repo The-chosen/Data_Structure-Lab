@@ -1,85 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
-
-    <TextView
-        android:id="@+id/activity_site_search_head_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-
-        android:layout_marginTop="30dp"
-        android:text="景点查找和热度排序"
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:typeface="monospace"/>
-
-    <LinearLayout
-        android:id="@+id/site_search_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_site_search_head_title"
-        android:layout_marginTop="20dp"
-        android:background="#fff">
-
-        <EditText
-            android:id="@+id/site_search_entryPlace"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="9"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@null"
-            android:ems="15"
-            android:hint="景点查找"
-            android:textSize="15sp" />
-
-
-        <Button
-            android:id="@+id/seach_icon"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/search_icon"/>
-
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <RelativeLayout
-        android:id="@+id/label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/site_search_entry"
-        >
-
-        <ImageView
-            android:id="@+id/fire_img"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/fire"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TextView
-            android:id="@+id/hot_site_text"
+            android:id="@+id/activity_site_search_head_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/fire_img"
-            android:text="热门景点 :"
-            android:layout_marginLeft="10dp"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="30dp"
+            android:text="景点查找和热度排序"
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:typeface="monospace"/>
+
+        <TextView
+            android:id="@+id/warning_search"
+            android:visibility="invisible"
+            android:layout_below="@+id/activity_site_search_head_title"
             android:layout_marginTop="10dp"
-            android:textSize="18dp"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请输入搜索内容！"
+            android:textColor="#f90000"/>
+
+        <LinearLayout
+            android:id="@+id/site_search_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/warning_search"
+            android:layout_marginTop="10dp"
+            android:background="#8000"
+            >
+
+            <EditText
+                android:id="@+id/site_search_entryPlace"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="9.3"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:ems="15"
+                android:textColorHint="#fff"
+                android:textColor="#fff"
+                android:hint="景点查找"
+                android:textSize="15sp" />
+
+
+            <Button
+                android:id="@+id/seach_icon_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="0.7"
+                android:background="@drawable/search_icon"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/hot_sites"
+            android:visibility="visible"
+            android:layout_below="@id/site_search_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/fire_img"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/fire"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp" />
+
+                <TextView
+                    android:id="@+id/hot_site_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/fire_img"
+                    android:text="热门景点 :"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#fff"
+                    android:textSize="18dp"
+                    />
+
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/label">
+
+            </ListView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/searched_have_outcome"
+            android:visibility="invisible"
+            android:layout_below="@id/site_search_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/show_site_name"
+                android:text=""
+                android:layout_marginTop="100dp"
+                android:background="#8000"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/show_site_intro"
+                android:text=""
+                android:layout_marginTop="0dp"
+                android:background="#8000"
+                android:textColor="#fff"
+                android:paddingLeft="20dp"
+                android:textSize="25dp"
+                android:layout_below="@id/show_site_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/back_main_1"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/show_site_intro"
+                android:layout_marginTop="190dp"
+                android:text="完成"
+                android:layout_width="340dp"
+                android:background="#7b50504c"
+                android:textColor="#fff"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/searched_not_have_outcome"
+            android:visibility="invisible"
+            android:layout_below="@id/site_search_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/no_outcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="没有找到结果"
+                android:background="#8000"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="100dp"
+                />
+
+            <Button
+                android:id="@+id/back_main_2"
+                android:layout_below="@id/no_outcome"
+                android:layout_marginTop="230dp"
+                android:layout_centerHorizontal="true"
+                android:background="#7b50504c"
+                android:textColor="#fff"
+                android:text="完成"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/label">
-
-    </ListView>
-
-
-</RelativeLayout>
+</FrameLayout>

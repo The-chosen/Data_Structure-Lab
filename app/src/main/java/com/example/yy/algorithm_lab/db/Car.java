@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 public class Car extends LitePalSupport {
     private int number;
-    private Calendar at_time;
+    private String at_time;
     private String state; //只有两种状态，p(parking)或w(waiting)
 
     public Car(int number) {
@@ -23,12 +23,12 @@ public class Car extends LitePalSupport {
         this.number = number;
     }
 
-    public Calendar getAt_time() {
-        return at_time;
+    public void setAt_time(String at_time) {
+        this.at_time = at_time;
     }
 
-    public void setAt_time(Calendar at_time) {
-        this.at_time = at_time;
+    public String getAt_time() {
+        return at_time;
     }
 
     public String getState() {
