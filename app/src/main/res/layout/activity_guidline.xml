@@ -25,6 +25,80 @@
             android:typeface="monospace"/>
 
 
+        <TextView
+            android:id="@+id/activity_guidline_warning"
+            android:visibility="invisible"
+            android:layout_below="@+id/activity_guidline_head_title"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请将信息填写完整！"
+            android:textColor="#f90000"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/from_entry_g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/activity_guidline_warning"
+            android:background="#8000"
+            >
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/from_icon"/>
+            <EditText
+                android:id="@+id/shortest_road_from_entry_content_g"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:textColorHint="#fff"
+                android:textColor="#fff"
+                android:layout_weight="9"
+                android:hint="从此处出发"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/to_entry_g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/from_entry_g"
+            android:background="#8000">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:src="@drawable/to_icon"/>
+            <EditText
+                android:id="@+id/shortest_road_to_entry_content_g"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:textColorHint="#fff"
+                android:textColor="#fff"
+                android:layout_weight="9"
+                android:hint="到达此处"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/activity_guidline_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_width="340dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/to_entry_g"
+            android:layout_marginTop="50dp"
+            android:text="查找"/>
+
+
     </RelativeLayout>
 
 

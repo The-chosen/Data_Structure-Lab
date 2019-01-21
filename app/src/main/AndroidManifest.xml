@@ -40,7 +40,8 @@
         <activity android:name=".activities.UserActivities.ShowShorstestActivity" />
         <activity android:name=".activities.UserActivities.EnterParkingActivity" />
         <activity android:name=".activities.UserActivities.OutParkingActivity" />
-        <activity android:name=".activities.UserActivities.ShowPublishingActivity"></activity>
+        <activity android:name=".activities.UserActivities.ShowPublishingActivity" />
+        <activity android:name=".activities.UserActivities.ShowGuildlineActivity"></activity>
     </application>
 
 </manifest>

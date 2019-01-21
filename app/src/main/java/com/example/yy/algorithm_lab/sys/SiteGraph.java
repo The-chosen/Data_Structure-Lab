@@ -91,7 +91,13 @@ public class SiteGraph implements Serializable {
         DiEdge[][] matrix = new DiEdge[V][V];
         DiEdge unAccess = new DiEdge(null, null, 32767);
         for (int i = 0; i < V; i++) {
-            Site self = DiAdj.get(i).iterator().next().from();
+            Site self = new Site();
+            for (DiEdge e: DiAdj.get(i)
+                 ) {
+                self = e.from();
+                break;
+            }
+
             for (int j = 0; j < V; j++) {
                 matrix[i][j] = unAccess;
             }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <ImageView
+        android:id="@+id/bing_pic_img"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/activity_guidline_outcome_head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="30dp"
+            android:text="导游路径"
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:typeface="monospace"/>
+
+        <TextView
+            android:id="@+id/text_g"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="导游路径:"
+            android:textColor="#fff"
+            android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/activity_guidline_outcome_head_title"/>
+
+
+        <ScrollView
+            android:id="@+id/guidline_way"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_below="@id/text_g"
+            android:layout_marginTop="5dp"
+            android:background="#8000"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/guidline_way_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="24dp"
+                android:textColor="#fff"
+                android:text=""/>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/guidline_finish_btn"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:text="完成"
+            android:layout_below="@id/guidline_way"
+            android:layout_marginTop="150dp"
+            android:background="#7b50504c"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -7,6 +7,7 @@ import com.example.yy.algorithm_lab.db.DiEdge;
 import com.example.yy.algorithm_lab.db.Publish;
 import com.example.yy.algorithm_lab.db.Site;
 import com.example.yy.algorithm_lab.sys.Dijkstra;
+import com.example.yy.algorithm_lab.sys.Hamilton;
 import com.example.yy.algorithm_lab.sys.SiteGraph;
 import com.example.yy.algorithm_lab.sys.parkingLot;
 
@@ -126,6 +127,7 @@ public class DbControl {
         for (int i = 0; i < sites.size(); i++) {
             Site site = sites.get(i);
             site.setMyId(i);
+            site.save();
         }
 
         for (DiEdge diEdge: diEdges
@@ -184,9 +186,24 @@ public class DbControl {
     }
 
 //    导游路线图
-//    public static String guidline(String from, String to) {
-//
-//    }
+    public static String guidline(String from, String to) {
+        SiteGraph siteGraph = SiteDistr();
+        List<Site> sites = LitePal.findAll(Site.class);
+        int begin = 0;
+        int end = 0;
+        for (Site site: sites
+             ) {
+            if (site.getName().equals(from)) {
+                begin = site.getMyId();
+            }
+            if (site.getName().equals(to)) {
+                end = site.getMyId();
+            }
+        }
+        Hamilton hamilton = new Hamilton(siteGraph, begin, end, end == begin);
+
+        return hamilton.getLine();
+    }
 
 //    最短路径指导
     public static Dijkstra shortest(String from, String to) {
