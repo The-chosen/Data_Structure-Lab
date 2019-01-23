@@ -3,9 +3,9 @@
     <dbname value="demo" />
     <version value="1" />
     <list>
-        <mapping class="com.example.yy.algorithm_lab.db.Car"/>
-        <mapping class="com.example.yy.algorithm_lab.db.DiEdge"/>
-        <mapping class="com.example.yy.algorithm_lab.db.Site"/>
-        <mapping class="com.example.yy.algorithm_lab.db.Publish"/>
+        <mapping class="com.example.yy.algorithm_lab.Android.db.Car"/>
+        <mapping class="com.example.yy.algorithm_lab.Android.db.DiEdge"/>
+        <mapping class="com.example.yy.algorithm_lab.Android.db.Site"/>
+        <mapping class="com.example.yy.algorithm_lab.Android.db.Publish"/>
     </list>
 </litepal>

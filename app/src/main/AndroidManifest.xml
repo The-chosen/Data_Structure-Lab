@@ -12,36 +12,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".Android.activities.InitialActivities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AdminActivities.AdminMainActivity" />
-        <activity android:name=".activities.UserActivities.UserMainActivity" />
-        <activity android:name=".activities.UserActivities.SiteDistrActivity" />
-        <activity android:name=".activities.UserActivities.SiteSearch" />
-        <activity android:name=".activities.UserActivities.GuidlineActivity" />
-        <activity android:name=".activities.UserActivities.shortestRoadActivity" />
-        <activity android:name=".activities.UserActivities.ParkingActivity" />
-        <activity android:name=".activities.AdminActivities.SiteMaintainActivity" />
-        <activity android:name=".activities.AdminActivities.EdgeMaintainActivity" />
-        <activity android:name=".activities.AdminActivities.PublishActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.AdminActivities.AddSiteActivity" />
-        <activity android:name=".activities.AdminActivities.AddEdgeActivity" />
-        <activity android:name=".activities.AdminActivities.ChangeSiteActivity" />
-        <activity android:name=".activities.AdminActivities.DeleteSiteActivity" />
-        <activity android:name=".activities.AdminActivities.SiteInitializeActivity" />
-        <activity android:name=".activities.AdminActivities.EdgeInitializeActivity" />
-        <activity android:name=".activities.SuccessActivity" />
-        <activity android:name=".activities.UserActivities.ShowShorstestActivity" />
-        <activity android:name=".activities.UserActivities.EnterParkingActivity" />
-        <activity android:name=".activities.UserActivities.OutParkingActivity" />
-        <activity android:name=".activities.UserActivities.ShowPublishingActivity" />
-        <activity android:name=".activities.UserActivities.ShowGuildlineActivity"></activity>
+        <activity android:name=".Android.activities.AdminActivities.AdminMainActivity" />
+        <activity android:name=".Android.activities.UserActivities.UserMainActivity" />
+        <activity android:name=".Android.activities.UserActivities.SiteDistrActivity" />
+        <activity android:name=".Android.activities.UserActivities.SiteSearch" />
+        <activity android:name=".Android.activities.UserActivities.GuidlineActivity" />
+        <activity android:name=".Android.activities.UserActivities.shortestRoadActivity" />
+        <activity android:name=".Android.activities.UserActivities.ParkingActivity" />
+        <activity android:name=".Android.activities.AdminActivities.SiteMaintainActivity" />
+        <activity android:name=".Android.activities.AdminActivities.EdgeMaintainActivity" />
+        <activity android:name=".Android.activities.AdminActivities.PublishActivity" />
+        <activity android:name=".Android.activities.InitialActivities.LoginActivity" />
+        <activity android:name=".Android.activities.AdminActivities.AddSiteActivity" />
+        <activity android:name=".Android.activities.AdminActivities.AddEdgeActivity" />
+        <activity android:name=".Android.activities.AdminActivities.ChangeSiteActivity" />
+        <activity android:name=".Android.activities.AdminActivities.DeleteSiteActivity" />
+        <activity android:name=".Android.activities.AdminActivities.SiteInitializeActivity" />
+        <activity android:name=".Android.activities.AdminActivities.EdgeInitializeActivity" />
+        <activity android:name=".Android.activities.InitialActivities.SuccessActivity" />
+        <activity android:name=".Android.activities.UserActivities.ShowShorstestActivity" />
+        <activity android:name=".Android.activities.UserActivities.EnterParkingActivity" />
+        <activity android:name=".Android.activities.UserActivities.OutParkingActivity" />
+        <activity android:name=".Android.activities.UserActivities.ShowPublishingActivity" />
+        <activity android:name=".Android.activities.UserActivities.ShowGuildlineActivity" />
+
+        <service
+            android:name=".Android.service.AutoUpdateService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
